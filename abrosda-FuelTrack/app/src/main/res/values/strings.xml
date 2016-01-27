@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">abrosda-FuelTrack</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="Save">Save</string>
+    <string name="Log">View entries</string>
+    <string name="newEntry">Enter new entry</string>
+    <string name="edit">Edit Existing entry</string>
+    <string name="Station">Enter fuel station</string>
+    <string name="title_activity_new_entry">NewEntryActivity</string>
+    <string name="Odometer">Enter odometer reading</string>
+    <string name="FuelUnitCost">Enter in cents per Litre the fuel cost</string>
+    <string name="FuelGrade">Enter the fuel grade</string>
+    <string name="FuelAmount">Enter in litres the amount of fuel</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_view_log">ViewLogActivity</string>
+    <string name="Cancel">Cancel</string>
+</resources>
