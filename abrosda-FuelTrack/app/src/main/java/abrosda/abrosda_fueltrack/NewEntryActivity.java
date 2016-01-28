@@ -5,10 +5,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+
+import java.util.ArrayList;
 
 public class NewEntryActivity extends ActionBarActivity {
 
+    protected EditText station, odometer, grade, amount, cost;
 
 
     @Override
@@ -17,6 +22,12 @@ public class NewEntryActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_new_entry);
+
+        station = (EditText) findViewById(R.id.Station);
+        odometer = (EditText) findViewById(R.id.Odometer);
+        grade = (EditText) findViewById(R.id.FuelGrade);
+        amount = (EditText) findViewById(R.id.FuelAmount);
+        cost = (EditText) findViewById(R.id.FuelUnitCost);
 
     }
 
@@ -42,7 +53,14 @@ public class NewEntryActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
+    //For when the user saves a new entry, call the Entry class constructor
     public void save(View view) {
+
+        setResult(RESULT_OK);
+        String station = station.getText().toString;
+
 
     }
 

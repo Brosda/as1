@@ -4,13 +4,26 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class ViewLogActivity extends ActionBarActivity {
+
+    private ListView oldEntryList;
+
+
+
+    private ArrayList<Entry> entries = new ArrayList<Entry>();  //list of entries
+    private ArrayAdapter<Entry> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_log);
+        oldEntryList = (ListView) findViewById(R.id.FuelLog);
     }
 
     @Override
@@ -33,5 +46,14 @@ public class ViewLogActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected  void onStart() {
+
+        super.onStart();
+        adapter = new ArrayAdapter<Entry>(this,R.layout.activity_view_log, entries);
+        oldEntryList.setAdapter(adapter);
+
     }
 }
