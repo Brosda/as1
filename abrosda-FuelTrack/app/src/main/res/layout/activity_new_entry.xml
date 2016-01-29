@@ -5,6 +5,13 @@
     android:orientation="vertical"
     tools:showIn="@layout/activity_my">
 
+    <EditText android:id="@+id/Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="@string/Date" />
+
+
     <EditText android:id="@+id/Station"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,12 +49,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Save"
+        android:id="@+id/save"
         android:onClick="save"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Cancel"
+        android:id="@+id/cancel"
         android:onClick="cancel"/>
 
 

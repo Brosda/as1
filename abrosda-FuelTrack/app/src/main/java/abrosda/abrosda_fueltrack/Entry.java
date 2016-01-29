@@ -7,15 +7,15 @@ import java.util.Date;
  */
 public class Entry {
 
-    protected Date date;
+    protected String date;
     protected String station;
     protected float odo;
     protected String grade;
     protected float amount;
     protected float cost;
 
-    public Entry(String station, float odo, String grade, float amount, float cost) {
-        this.date = new Date();
+    public Entry(String date, String station, float odo, String grade, float amount, float cost) {
+        this.date = date;
         this.station = station;
         this.odo = odo;
         this.grade = grade;
@@ -24,11 +24,11 @@ public class Entry {
 
     }
 
-    public Date getDate() {
-        return this.date;
+    public String getDate() {
+        return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

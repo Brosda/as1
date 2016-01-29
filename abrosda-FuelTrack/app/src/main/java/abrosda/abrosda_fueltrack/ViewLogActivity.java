@@ -1,5 +1,6 @@
 package abrosda.abrosda_fueltrack;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,12 +9,25 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class ViewLogActivity extends ActionBarActivity {
 
-    private ListView oldEntryList;
 
+    private ListView oldEntryList;
+    private static final String FILENAME = "file.sav";
 
 
     private ArrayList<Entry> entries = new ArrayList<Entry>();  //list of entries
@@ -23,7 +37,7 @@ public class ViewLogActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_log);
-        oldEntryList = (ListView) findViewById(R.id.FuelLog);
+        oldEntryList = (ListView) findViewById(R.id.oldEntriesList);
     }
 
     @Override
@@ -50,10 +64,36 @@ public class ViewLogActivity extends ActionBarActivity {
 
     @Override
     protected  void onStart() {
-
         super.onStart();
-        adapter = new ArrayAdapter<Entry>(this,R.layout.activity_view_log, entries);
-        oldEntryList.setAdapter(adapter);
+
+       loadFromFile();
+       adapter = new ArrayAdapter<Entry>(this, R.layout.list_item, entries);
+       oldEntryList.setAdapter(adapter);
 
     }
+
+    private void loadFromFile() {
+
+        try {
+            FileInputStream fis = openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+            Gson gson = new Gson();
+
+            //Took from https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html 01-19 2016
+            Type listType = new TypeToken<ArrayList<Entry>>() {}.getType();
+            entries = gson.fromJson(in, listType);
+
+
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            //entries = new ArrayList<Entry>();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        }
+
+    }
+
+
 }
