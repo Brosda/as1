@@ -118,7 +118,7 @@ public class NewEntryActivity extends ActionBarActivity {
         }
 
         Intent intent = new Intent(NewEntryActivity.this, ViewLogActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         startActivity(intent);
 

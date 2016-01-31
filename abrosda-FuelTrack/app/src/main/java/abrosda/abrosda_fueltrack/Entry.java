@@ -1,11 +1,16 @@
+/*Written by Alex Brosda
+* Assignment 1 cmpt 301
+* 1428272
+* Fuel Log*/
+
 package abrosda.abrosda_fueltrack;
 
-import java.util.Date;
 
 /**
  * Created by abrosda on 1/28/16.
  */
 public class Entry {
+
 
     protected String date;
     protected String station;
@@ -13,6 +18,7 @@ public class Entry {
     protected String grade;
     protected float amount;
     protected float cost;
+    protected float total; //for total cost calculating
 
     public Entry(String date, String station, float odo, String grade, float amount, float cost) {
         this.date = date;
@@ -21,7 +27,16 @@ public class Entry {
         this.grade = grade;
         this.amount = amount;
         this.cost = cost;
+        this.total = (cost * amount)/100;  //gets the cost for this entry
 
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal() { //gets the cost for this entry
+        this.total = (getAmount() * getCost())/100;
     }
 
     public String getDate() {
@@ -44,8 +59,9 @@ public class Entry {
         return odo;
     }
 
-    public void setOdo(float odo) {
-        this.odo = odo;
+    public void setOdo(String odo) {
+
+        this.odo = Float.valueOf(odo);
     }
 
     public String getGrade() {
@@ -60,15 +76,23 @@ public class Entry {
         return amount;
     }
 
-    public void setAmount(float amount) {
-        this.amount = amount;
+    public void setAmount(String amount)
+    {
+        this.amount = Float.valueOf(amount);
     }
 
     public float getCost() {
         return cost;
     }
 
-    public void setCost(float cost) {
-        this.cost = cost;
+    public void setCost(String cost) {
+        this.cost = Float.valueOf(cost);
+    }
+
+    @Override
+    public String toString(){
+        return date + " | " + station + " | " +String.format("%.1f", odo) + " km" +
+                " | " + grade + " | " + String.format("%.3f", amount) + " L" + " | " +
+                String.format("%.2f", cost) + " cents/L";
     }
 }
