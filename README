@@ -1,0 +1,16 @@
+as1
+301 assignment 1 fuelTrack
+Alexander Brosda
+abrosda
+1428272
+CMPT 301
+
+This android application is designed to keep a record of fuel purchases. The user enters the date, location, odometer reading, fuel grade, fuel amount, and fuel cost per liter. These once these fields are all filled the user may press the save button to store this entry in the app. A total cost of all entries is computed and displayed for the user as well. If the user enters an incompatible type or leaves a field blank a warning message will appear, then the app will continue running. The user may also hit the cancle button to clear all text fields and deslect entries. The user may also select a previous entry from the list, then when the edit button is pressed the selected entry will update with the values in the text fields. 
+
+This app is not intended for commercial use and has been made for an acedmic setting.
+Many of the ideas for this code where learned from the lonely twitter app used in the lab.
+Some code came from other free online sources and that code has been commented with links to the site
+
+I have posted questions on the discussion board and into my group project teams slack, and have taken ideas from them to develop this app.
+
+Link to video: https://youtu.be/ykcKczxCg2A
